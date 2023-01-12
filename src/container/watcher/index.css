@@ -1,0 +1,9 @@
+.wrapper {
+    height: 80vh;
+    border: 2px solid white;
+    width: 44%;
+    border-radius: 24px;
+    position: fixed;
+    left: 30%;
+    top: 5%;
+}

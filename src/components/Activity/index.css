@@ -1,0 +1,19 @@
+.activity-wrapper {
+    background-color: pink;
+    height: 60%;
+    border-radius: 24px;
+    margin: 2%;
+    margin-top: 5%;
+}
+
+.action-wrapper {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5%;
+}
+
+.lap-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+}

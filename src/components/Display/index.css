@@ -1,0 +1,23 @@
+.display-wrapper {
+    background-color: white;
+    height: 30%;
+    border-radius: 24px;
+    margin: 3%;
+}
+
+.word-decoration {
+    font-size: 100px;
+    text-decoration: blink;
+    font-weight: 200;
+    padding-top: 8%;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
