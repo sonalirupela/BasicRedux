@@ -1,15 +1,33 @@
 import "./index.css";
 import { Button } from "../Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { WATCHER_STATE } from "../../constants";
+import { useDispatch } from "react-redux";
+import { onStartAction, onStopAction } from "../../redux/action";
+import { useSelector } from "react-redux";
+
 export const Activity = () => {
+  const min = useSelector((state) => state.watcherReducers.min);
+  const sec = useSelector((state) => state.watcherReducers.sec);
+  const ms = useSelector((state) => state.watcherReducers.ms);
+  const [timer, setTimer] = useState({ min, sec, ms });
+  let myInterval;
+
   const [activity, setActivity] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(onStartAction({ ...timer }));
+  }, [dispatch, timer]);
 
   const onStart = () => {
     setActivity(WATCHER_STATE.START);
+    setTimer({ min: min + 1, sec: sec + 10, ms: ms + 34 });
   };
   const onStop = () => {
     setActivity(WATCHER_STATE.STOP);
+    clearInterval(myInterval);
+    dispatch(onStopAction());
   };
   const onLapped = () => {
     setActivity(WATCHER_STATE.LAP);
